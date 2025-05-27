@@ -111,9 +111,9 @@ class CategoryController extends Controller
                 'image' => 'required|mimes:jpeg,png,jpg,gif,svg,webp'
             ]);
 
-            if ($category->image != null) {
-                unlink(public_path('uploads/category/' . $category->image));
-            }
+            // if ($category->image != null) {
+            //     unlink(public_path('uploads/category/' . $category->image));
+            // }
             $image_name = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME) . '-' . time() . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('uploads/category'), $image_name);
             $category->image = $image_name;
